@@ -1,0 +1,6 @@
+# Installed in Colab only (not on the laptop). Colab already provides torch.
+transformers
+peft
+bitsandbytes
+accelerate
+tqdm
