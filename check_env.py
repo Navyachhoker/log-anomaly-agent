@@ -3,6 +3,8 @@ import importlib
 import importlib.metadata as metadata
 import sys
 
+ALLOWED_PYTHON = ((3, 11), (3, 12))
+
 PACKAGES = {  # distribution name -> module to import
     "pandas": "pandas",
     "scikit-learn": "sklearn",
@@ -24,7 +26,7 @@ def main() -> int:
     failures = 0
 
     version = sys.version_info
-    ok = (version.major, version.minor) == (3, 12)
+    ok = (version.major, version.minor) in ALLOWED_PYTHON
     print(f"[{'OK' if ok else 'FAIL'}] python {version.major}.{version.minor}.{version.micro}  ({sys.executable})")
     failures += not ok
 
