@@ -1,0 +1,9 @@
+{
+  "url": "https://zenodo.org/records/8196385/files/HDFS_v1.zip?download=1",
+  "downloaded_or_checked_on": "2026-11-13",
+  "zip_size_bytes": 186645559,
+  "zip_sha256": "04f919f2185821f23f045dca611a7586429bdabc601bd7b43f30005f8e289b01",
+  "log_file": "data\\raw\\extracted\\HDFS.log",
+  "log_size_bytes": 1577982906,
+  "label_file": "data\\raw\\extracted\\preprocessed\\anomaly_label.csv"
+}

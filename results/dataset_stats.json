@@ -1,0 +1,114 @@
+{
+  "pilot": false,
+  "max_snippet_tokens": 768,
+  "seed": 42,
+  "split_blocks_before_balancing": {
+    "train": {
+      "blocks": 460048,
+      "anomalies": 13470
+    },
+    "val": {
+      "blocks": 57506,
+      "anomalies": 1684
+    },
+    "test": {
+      "blocks": 57507,
+      "anomalies": 1684
+    }
+  },
+  "train_test_duplicate_analysis": {
+    "test_blocks_with_identical_sequence_in_train": {
+      "all": 0.2177,
+      "normal": 0.2128,
+      "anomaly": 0.3783
+    },
+    "of_those_train_copies_have_only_the_same_label": {
+      "normal": 1.0,
+      "anomaly": 1.0
+    }
+  },
+  "files": {
+    "train": {
+      "path": "data\\processed\\train.jsonl",
+      "samples": 26940,
+      "anomalies": 13470,
+      "normals": 13470,
+      "anomaly_rate": 0.5,
+      "share_truncated": 0.0282,
+      "snippet_tokens": {
+        "min": 70.0,
+        "median": 392.0,
+        "mean": 372.25,
+        "p95": 647.0,
+        "p99": 761.0,
+        "max": 768.0
+      },
+      "full_training_prompt_tokens_checked_on_a_sample": {
+        "sample_size": 1000,
+        "min": 146.0,
+        "median": 459.5,
+        "mean": 447.96,
+        "p95": 716.0,
+        "p99": 814.01,
+        "max": 820.0,
+        "sample_over_512": 305
+      },
+      "sha256": "cd7703ef1eced96f260f5e2a37427b87c50a65e65125ec8304eb55ea0a3d3d97"
+    },
+    "val": {
+      "path": "data\\processed\\val.jsonl",
+      "samples": 57506,
+      "anomalies": 1684,
+      "normals": 55822,
+      "anomaly_rate": 0.02928,
+      "share_truncated": 0.0023,
+      "snippet_tokens": {
+        "min": 70.0,
+        "median": 392.0,
+        "mean": 385.08,
+        "p95": 544.0,
+        "p99": 611.0,
+        "max": 768.0
+      },
+      "full_training_prompt_tokens_checked_on_a_sample": {
+        "sample_size": 1000,
+        "min": 148.0,
+        "median": 459.0,
+        "mean": 458.01,
+        "p95": 616.05,
+        "p99": 673.0,
+        "max": 817.0,
+        "sample_over_512": 207
+      },
+      "sha256": "c34f2792583d96afdd743393fb7d18e13153176ed7bed6c74daf57e0c3b2b330"
+    },
+    "test": {
+      "path": "data\\processed\\test.jsonl",
+      "samples": 57507,
+      "anomalies": 1684,
+      "normals": 55823,
+      "anomaly_rate": 0.02928,
+      "share_truncated": 0.0021,
+      "snippet_tokens": {
+        "min": 70.0,
+        "median": 392.0,
+        "mean": 385.16,
+        "p95": 544.0,
+        "p99": 612.0,
+        "max": 768.0
+      },
+      "full_training_prompt_tokens_checked_on_a_sample": {
+        "sample_size": 1000,
+        "min": 146.0,
+        "median": 457.5,
+        "mean": 451.42,
+        "p95": 602.0,
+        "p99": 670.0,
+        "max": 806.0,
+        "sample_over_512": 169
+      },
+      "sha256": "3e140a9919b7aa97bacc01c5e821b049435d3123a393e6ce38859de6e9128b3c"
+    }
+  },
+  "snippets_containing_block_ids_timestamps_or_ips_after_cleaning": 0
+}

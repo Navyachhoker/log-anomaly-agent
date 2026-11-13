@@ -1,0 +1,86 @@
+===== Normal example 1 (from the training file) =====
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand3/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP> [x2]
+INFO dfs.DataNode$PacketResponder: PacketResponder 2 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 1 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 0 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM> [x3]
+INFO dfs.DataBlockScanner: Verification succeeded for <BLK>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.delete: <BLK> is added to invalidSet of <IP> [x3]
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir9/<BLK>
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir59/<BLK>
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir33/<BLK>
+
+===== Normal example 2 (from the training file) =====
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP> [x3]
+INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/sortrand2/_temporary/_task_<NUM>_<NUM>_r_<NUM>_0/part-<NUM>. <BLK>
+INFO dfs.DataNode$PacketResponder: PacketResponder 1 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 2 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 0 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM> [x3]
+INFO dfs.FSNamesystem: BLOCK* NameSystem.delete: <BLK> is added to invalidSet of <IP> [x3]
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir48/<BLK>
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir47/<BLK>
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir2/<BLK>
+
+===== Normal example 3 (from the training file) =====
+INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP> [x3]
+INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM> [x3]
+INFO dfs.DataNode$PacketResponder: PacketResponder 2 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 1 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 0 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataBlockScanner: Verification succeeded for <BLK>
+WARN dfs.DataNode$DataXceiver: <IP>:Got exception while serving <BLK> to <IP>:
+INFO dfs.DataNode$DataXceiver: <IP> Served block <BLK> to <IP>
+WARN dfs.DataNode$DataXceiver: <IP>:Got exception while serving <BLK> to <IP>:
+INFO dfs.FSNamesystem: BLOCK* NameSystem.delete: <BLK> is added to invalidSet of <IP> [x3]
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir30/<BLK>
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir15/<BLK> [x2]
+
+===== Anomaly example 1 (from the training file) =====
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 1 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 0 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>
+INFO dfs.DataNode$PacketResponder: PacketResponder 2 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand8/_logs/history/ip-10-<NUM>-19-<NUM>.ec2.internal_<NUM>_job_<NUM>_<NUM>_conf.xml. <BLK>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM>
+INFO dfs.FSNamesystem: BLOCK* ask <IP> to replicate <BLK> to datanode(s) <IP> <IP>
+INFO dfs.DataNode: <IP> Starting thread to transfer block <BLK> to <IP>, <IP>
+INFO dfs.DataNode$DataXceiver: Received block <BLK> src: <IP> dest: <IP> of size <NUM>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>
+INFO dfs.DataNode$DataTransfer: <IP>:Transmitted block <BLK> to <IP>
+INFO dfs.DataNode$DataXceiver: Received block <BLK> src: <IP> dest: <IP> of size <NUM>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>
+INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM> [x4]
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir50/<BLK>
+INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/subdir45/<BLK>
+
+===== Anomaly example 2 (from the training file) =====
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP> [x2]
+INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand4/_temporary/_task_<NUM>_<NUM>_m_<NUM>_1/part-<NUM>. <BLK>
+INFO dfs.DataNode$PacketResponder: PacketResponder 2 for block <BLK> terminating
+INFO dfs.DataNode$PacketResponder: PacketResponder <BLK> 2 Exception java.io.EOFException
+INFO dfs.DataNode$DataXceiver: writeBlock <BLK> received exception java.net.SocketTimeoutException
+INFO dfs.DataNode$BlockReceiver: Exception in receiveBlock for block <BLK> java.io.IOException: Connection reset by peer
+INFO dfs.DataNode$DataXceiver: writeBlock <BLK> received exception java.io.IOException: Connection reset by peer
+
+===== Anomaly example 3 (from the training file) =====
+INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>
+INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP> [x2]
+INFO dfs.DataNode$DataXceiver: writeBlock <BLK> received exception java.io.IOException: Could not read from stream

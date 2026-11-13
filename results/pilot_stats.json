@@ -1,0 +1,87 @@
+{
+  "pilot": true,
+  "max_snippet_tokens": 768,
+  "seed": 42,
+  "split_blocks_before_balancing": {
+    "train": {
+      "blocks": 460048,
+      "anomalies": 13470
+    },
+    "val": {
+      "blocks": 57506,
+      "anomalies": 1684
+    },
+    "test": {
+      "blocks": 57507,
+      "anomalies": 1684
+    }
+  },
+  "train_test_duplicate_analysis": {
+    "test_blocks_with_identical_sequence_in_train": {
+      "all": 0.2177,
+      "normal": 0.2128,
+      "anomaly": 0.3783
+    },
+    "of_those_train_copies_have_only_the_same_label": {
+      "normal": 1.0,
+      "anomaly": 1.0
+    }
+  },
+  "files": {
+    "train": {
+      "path": "data\\processed\\pilot\\train.jsonl",
+      "samples": 500,
+      "anomalies": 250,
+      "normals": 250,
+      "anomaly_rate": 0.5,
+      "share_truncated": 0.03,
+      "snippet_tokens": {
+        "min": 70.0,
+        "median": 392.0,
+        "mean": 372.61,
+        "p95": 663.05,
+        "p99": 762.02,
+        "max": 768.0
+      },
+      "full_training_prompt_tokens_checked_on_a_sample": {
+        "sample_size": 500,
+        "min": 146.0,
+        "median": 459.0,
+        "mean": 439.65,
+        "p95": 722.05,
+        "p99": 816.02,
+        "max": 830.0,
+        "sample_over_512": 131
+      },
+      "sha256": "9353fe28e8373ccf8332fe47ddbce3a5662e98ead0b38b9067fde7016d3592fe"
+    },
+    "val": {
+      "path": "data\\processed\\pilot\\val.jsonl",
+      "samples": 200,
+      "anomalies": 100,
+      "normals": 100,
+      "anomaly_rate": 0.5,
+      "share_truncated": 0.02,
+      "snippet_tokens": {
+        "min": 70.0,
+        "median": 394.0,
+        "mean": 385.43,
+        "p95": 625.5999999999998,
+        "p99": 751.04,
+        "max": 757.0
+      },
+      "full_training_prompt_tokens_checked_on_a_sample": {
+        "sample_size": 200,
+        "min": 146.0,
+        "median": 460.0,
+        "mean": 452.13,
+        "p95": 683.6499999999997,
+        "p99": 805.05,
+        "max": 812.0,
+        "sample_over_512": 57
+      },
+      "sha256": "f0d8601cdf9724ce0373b7d24f3b4c9af4d1169032dde3dc8c158294f2710763"
+    }
+  },
+  "snippets_containing_block_ids_timestamps_or_ips_after_cleaning": 0
+}

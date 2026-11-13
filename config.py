@@ -26,4 +26,4 @@ EXPECTED_LINES = 11_175_629  # line count stated by LogHub for HDFS_v1 (used as 
 
 BASE_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 SEED = 42
-MAX_SNIPPET_TOKENS = 400  # default snippet budget; confirmed or changed after `inspect`
+MAX_SNIPPET_TOKENS = 768  # chosen from the real data (results/data_inspection.json)

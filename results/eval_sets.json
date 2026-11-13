@@ -1,0 +1,13 @@
+{
+  "val_eval": {
+    "size": 5000,
+    "anomalies": 146,
+    "source_size": 57506
+  },
+  "test_eval": {
+    "size": 5000,
+    "anomalies": 146,
+    "source_size": 57507
+  },
+  "seed": 42
+}

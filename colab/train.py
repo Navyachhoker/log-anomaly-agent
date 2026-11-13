@@ -105,7 +105,7 @@ def main():
     p.add_argument("--dropout", type=float, default=0.05)
     p.add_argument("--max-per-class", type=int, default=0, help="use at most N training samples per class (0 = all)")
     p.add_argument("--eval-per-class", type=int, default=100, help="validation samples per class used for eval loss")
-    p.add_argument("--max-seq-len", type=int, default=512)
+    p.add_argument("--max-seq-len", type=int, default=896)
     p.add_argument("--batch-size", type=int, default=4)
     p.add_argument("--grad-accum", type=int, default=4)
     p.add_argument("--save-steps", type=int, default=100)

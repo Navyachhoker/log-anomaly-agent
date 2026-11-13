@@ -1,0 +1,207 @@
+{
+  "parsing": {
+    "lines": 11175629,
+    "blank_lines": 0,
+    "lines_not_matching_hdfs_format": 0,
+    "lines_without_block_id": 0,
+    "lines_with_multiple_block_ids": 0,
+    "blocks_in_log_without_label": 0,
+    "lines_expected_by_loghub": 11175629,
+    "line_count_matches_loghub": true,
+    "levels": {
+      "INFO": 10812836,
+      "WARN": 362793
+    },
+    "unique_cleaned_lines": 215
+  },
+  "labels": {
+    "csv_rows": 575061,
+    "unique_blocks_in_csv": 575061,
+    "normal": 558223,
+    "anomaly": 16838,
+    "anomaly_rate": 0.02928,
+    "csv_blocks_without_log_lines": 0
+  },
+  "raw_lines_per_block": {
+    "normal": {
+      "min": 13.0,
+      "median": 19.0,
+      "mean": 19.5,
+      "p95": 28.0,
+      "p99": 32.0,
+      "max": 298.0
+    },
+    "anomaly": {
+      "min": 2.0,
+      "median": 20.0,
+      "mean": 17.12,
+      "p95": 38.0,
+      "p99": 42.0,
+      "max": 284.0
+    }
+  },
+  "share_of_blocks_with_a_non_INFO_line": {
+    "normal": 0.2259,
+    "anomaly": 0.4822
+  },
+  "top_15_cleaned_lines": [
+    {
+      "count": 1723232,
+      "line": "INFO dfs.DataNode$DataXceiver: Receiving block <BLK> src: <IP> dest: <IP>"
+    },
+    {
+      "count": 1719717,
+      "line": "INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM>"
+    },
+    {
+      "count": 1706493,
+      "line": "INFO dfs.DataNode$PacketResponder: Received block <BLK> of size <NUM> from <IP>"
+    },
+    {
+      "count": 1396174,
+      "line": "INFO dfs.FSNamesystem: BLOCK* NameSystem.delete: <BLK> is added to invalidSet of <IP>"
+    },
+    {
+      "count": 568913,
+      "line": "INFO dfs.DataNode$PacketResponder: PacketResponder 0 for block <BLK> terminating"
+    },
+    {
+      "count": 568890,
+      "line": "INFO dfs.DataNode$PacketResponder: PacketResponder 1 for block <BLK> terminating"
+    },
+    {
+      "count": 568876,
+      "line": "INFO dfs.DataNode$PacketResponder: PacketResponder 2 for block <BLK> terminating"
+    },
+    {
+      "count": 428726,
+      "line": "INFO dfs.DataNode$DataXceiver: <IP> Served block <BLK> to <IP>"
+    },
+    {
+      "count": 356207,
+      "line": "WARN dfs.DataNode$DataXceiver: <IP>:Got exception while serving <BLK> to <IP>:"
+    },
+    {
+      "count": 120036,
+      "line": "INFO dfs.DataBlockScanner: Verification succeeded for <BLK>"
+    },
+    {
+      "count": 69526,
+      "line": "INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>"
+    },
+    {
+      "count": 65024,
+      "line": "INFO dfs.FSDataset: Deleting block <BLK> file /mnt/hadoop/dfs/data/current/<BLK>"
+    },
+    {
+      "count": 35635,
+      "line": "INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/randtxt/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>"
+    },
+    {
+      "count": 34884,
+      "line": "INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/randtxt4/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>"
+    },
+    {
+      "count": 34746,
+      "line": "INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/randtxt9/_temporary/_task_<NUM>_<NUM>_m_<NUM>_0/part-<NUM>. <BLK>"
+    }
+  ],
+  "token_lengths_untruncated_after_collapsing_repeats": {
+    "prompt_overhead_tokens_without_snippet": 74,
+    "sampled_blocks_per_class": {
+      "normal": 5000,
+      "anomaly": 5000
+    },
+    "normal": {
+      "snippet_tokens": {
+        "min": 225.0,
+        "median": 392.0,
+        "mean": 386.98,
+        "p95": 534.0,
+        "p99": 601.0200000000004,
+        "max": 1937.0
+      },
+      "share_longer_than_budget": {
+        "256": 0.9272,
+        "384": 0.5296,
+        "512": 0.0728,
+        "768": 0.001,
+        "1024": 0.0002
+      }
+    },
+    "anomaly": {
+      "snippet_tokens": {
+        "min": 70.0,
+        "median": 410.5,
+        "mean": 367.12,
+        "p95": 860.0,
+        "p99": 951.0,
+        "max": 1708.0
+      },
+      "share_longer_than_budget": {
+        "256": 0.6314,
+        "384": 0.6038,
+        "512": 0.2776,
+        "768": 0.059,
+        "1024": 0.002
+      }
+    }
+  },
+  "label_tokens": {
+    "Normal": {
+      "token_ids": [
+        12206
+      ],
+      "pieces": [
+        "Normal"
+      ]
+    },
+    "Anomaly": {
+      "token_ids": [
+        2082,
+        83092
+      ],
+      "pieces": [
+        "An",
+        "omaly"
+      ]
+    }
+  },
+  "label_first_tokens_differ": true,
+  "evaluation_subset_options": {
+    "test_blocks": 57506,
+    "test_anomalies": 1684,
+    "table": [
+      {
+        "eval_subset_size": 1000,
+        "expected_anomalies": 29,
+        "rough_95pct_halfwidth_of_recall_if_recall_is_0.9": 0.109
+      },
+      {
+        "eval_subset_size": 2000,
+        "expected_anomalies": 59,
+        "rough_95pct_halfwidth_of_recall_if_recall_is_0.9": 0.077
+      },
+      {
+        "eval_subset_size": 3000,
+        "expected_anomalies": 88,
+        "rough_95pct_halfwidth_of_recall_if_recall_is_0.9": 0.063
+      },
+      {
+        "eval_subset_size": 5000,
+        "expected_anomalies": 146,
+        "rough_95pct_halfwidth_of_recall_if_recall_is_0.9": 0.049
+      },
+      {
+        "eval_subset_size": 10000,
+        "expected_anomalies": 293,
+        "rough_95pct_halfwidth_of_recall_if_recall_is_0.9": 0.034
+      },
+      {
+        "eval_subset_size": 57506,
+        "expected_anomalies": 1684,
+        "rough_95pct_halfwidth_of_recall_if_recall_is_0.9": 0.014
+      }
+    ]
+  }
+}
