@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets: never commit
+.env
+
+# Large or reproducible files
+data/
+models/
+checkpoints/
+*.safetensors
+*.bin
+*.gguf
+
+# Frontend
+frontend/node_modules/
+frontend/dist/

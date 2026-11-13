@@ -1,0 +1,15 @@
+# Laptop dependencies (Python 3.12, CPU only). Exact installed versions are recorded in
+# requirements-lock.txt after setup.
+pandas
+scikit-learn
+tqdm
+psutil
+python-dotenv
+torch
+transformers
+fastapi
+uvicorn
+pydantic
+langgraph
+pytest
+httpx
