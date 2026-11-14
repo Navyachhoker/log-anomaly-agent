@@ -1,0 +1,11 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "/content/drive/MyDrive/logagent/run1/adapter",
+  "hardware": "Tesla T4 (Colab GPU)",
+  "precision": "4-bit NF4 base + LoRA adapter",
+  "data": "/content/data/processed/test_eval.jsonl",
+  "batch_size": 1,
+  "torch": "2.14.1+cu130",
+  "python": "3.13.16",
+  "finished_at": "2026-11-13 13:43:16"
+}

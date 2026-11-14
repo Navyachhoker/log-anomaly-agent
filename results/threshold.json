@@ -1,0 +1,9 @@
+{
+  "threshold": 0.98,
+  "tuned_on": "validation subset (val_eval)",
+  "val_examples": 5000,
+  "val_anomalies": 146,
+  "val_f1_at_0.5": 0.9700996677740864,
+  "val_f1_at_tuned": 0.9798657718120806,
+  "tuned_at": "2026-11-14T07:10:02"
+}

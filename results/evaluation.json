@@ -1,0 +1,232 @@
+{
+  "generated_at": "2026-11-14T07:10:03",
+  "test_examples": {
+    "n": 5000,
+    "anomalies": 146,
+    "anomaly_rate": 0.0292,
+    "dropped_because_not_in_all_three_files": {
+      "finetuned": 0,
+      "untuned": 0
+    }
+  },
+  "threshold": {
+    "threshold": 0.98,
+    "tuned_on": "validation subset (val_eval)",
+    "val_examples": 5000,
+    "val_anomalies": 146,
+    "val_f1_at_0.5": 0.9700996677740864,
+    "val_f1_at_tuned": 0.9798657718120806,
+    "tuned_at": "2026-11-14T07:10:02"
+  },
+  "models": [
+    {
+      "key": "finetuned",
+      "name": "Fine-tuned Qwen2.5-1.5B (QLoRA)",
+      "n": 5000,
+      "hardware": "Tesla T4 (Colab GPU)",
+      "precision": "4-bit NF4 base + LoRA adapter",
+      "unparseable": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "as_generated": {
+        "accuracy": 0.998,
+        "precision": 0.9358974358974359,
+        "recall": 1.0,
+        "f1": 0.9668874172185431,
+        "confusion": {
+          "tp": 146,
+          "fp": 10,
+          "fn": 0,
+          "tn": 4844
+        },
+        "ci95": {
+          "accuracy": [
+            0.9966,
+            0.9992
+          ],
+          "precision": [
+            0.8936,
+            0.9725
+          ],
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "f1": [
+            0.9438,
+            0.9861
+          ]
+        }
+      },
+      "scored_at_0.5": {
+        "accuracy": 0.998,
+        "precision": 0.9358974358974359,
+        "recall": 1.0,
+        "f1": 0.9668874172185431,
+        "confusion": {
+          "tp": 146,
+          "fp": 10,
+          "fn": 0,
+          "tn": 4844
+        },
+        "ci95": {
+          "accuracy": [
+            0.9966,
+            0.9992
+          ],
+          "precision": [
+            0.8936,
+            0.9725
+          ],
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "f1": [
+            0.9438,
+            0.9861
+          ]
+        }
+      },
+      "scored_at_tuned_threshold": {
+        "threshold": 0.98,
+        "accuracy": 0.9988,
+        "precision": 0.9605263157894737,
+        "recall": 1.0,
+        "f1": 0.9798657718120806,
+        "confusion": {
+          "tp": 146,
+          "fp": 6,
+          "fn": 0,
+          "tn": 4848
+        },
+        "ci95": {
+          "accuracy": [
+            0.9976,
+            0.9996
+          ],
+          "precision": [
+            0.9245,
+            0.9873
+          ],
+          "recall": [
+            1.0,
+            1.0
+          ],
+          "f1": [
+            0.9608,
+            0.9936
+          ]
+        }
+      },
+      "latency": {
+        "n": 4997,
+        "mean_s": 0.2627,
+        "median_s": 0.2503,
+        "p95_s": 0.326,
+        "total_s": 1312.52
+      },
+      "cost": {
+        "estimated_commercial_usd_total": 0.12760611111111111,
+        "estimated_commercial_usd_per_1000": 0.02553654414871145,
+        "actual_spend_usd": 0.0,
+        "assumptions": "estimate = measured inference seconds x assumed GPU price of 0.35 USD/hour (inference time only); actual spend 0 on the free Colab tier"
+      }
+    },
+    {
+      "key": "untuned",
+      "name": "Untuned Qwen2.5-1.5B-Instruct",
+      "n": 5000,
+      "hardware": "Tesla T4 (Colab GPU)",
+      "precision": "4-bit NF4 base",
+      "unparseable": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "as_generated": {
+        "accuracy": 0.8752,
+        "precision": 0.13677811550151975,
+        "recall": 0.6164383561643836,
+        "f1": 0.22388059701492538,
+        "confusion": {
+          "tp": 90,
+          "fp": 568,
+          "fn": 56,
+          "tn": 4286
+        },
+        "ci95": {
+          "accuracy": [
+            0.8664,
+            0.8842
+          ],
+          "precision": [
+            0.1115,
+            0.1644
+          ],
+          "recall": [
+            0.539,
+            0.6929
+          ],
+          "f1": [
+            0.1873,
+            0.2629
+          ]
+        }
+      },
+      "scored_at_0.5": {
+        "accuracy": 0.8752,
+        "precision": 0.13677811550151975,
+        "recall": 0.6164383561643836,
+        "f1": 0.22388059701492538,
+        "confusion": {
+          "tp": 90,
+          "fp": 568,
+          "fn": 56,
+          "tn": 4286
+        },
+        "ci95": {
+          "accuracy": [
+            0.8664,
+            0.8842
+          ],
+          "precision": [
+            0.1115,
+            0.1644
+          ],
+          "recall": [
+            0.539,
+            0.6929
+          ],
+          "f1": [
+            0.1873,
+            0.2629
+          ]
+        }
+      },
+      "latency": {
+        "n": 4997,
+        "mean_s": 0.1567,
+        "median_s": 0.1455,
+        "p95_s": 0.2257,
+        "total_s": 782.96
+      },
+      "cost": {
+        "estimated_commercial_usd_total": 0.07612111111111111,
+        "estimated_commercial_usd_per_1000": 0.015233362239565963,
+        "actual_spend_usd": 0.0,
+        "assumptions": "estimate = measured inference seconds x assumed GPU price of 0.35 USD/hour (inference time only); actual spend 0 on the free Colab tier"
+      }
+    }
+  ],
+  "supplementary": {},
+  "end_to_end": null,
+  "diagnosis_ratings": null,
+  "notes": [
+    "Anomaly is the positive class. Unparseable answers are counted as errors.",
+    "95% intervals come from a 1000-sample bootstrap over the test examples.",
+    "Latency is measured at batch size 1 excluding warm-up calls and is NOT comparable across hardware: T4 GPU vs API vs laptop CPU.",
+    "The decision threshold was tuned on validation data only; the test examples were never used for tuning.",
+    "The zero-shot LLM baseline is not included in this version of the report (its predictions were not available)."
+  ]
+}

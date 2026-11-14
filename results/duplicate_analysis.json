@@ -1,0 +1,193 @@
+{
+  "test_examples": 5000,
+  "references": {
+    "the 4000 blocks actually trained on": {
+      "reference_blocks": 4000,
+      "test_blocks_with_identical_sequence": 793,
+      "models": {
+        "finetuned": {
+          "all": {
+            "n": 5000,
+            "anomalies": 146,
+            "accuracy": 0.998,
+            "precision": 0.9358974358974359,
+            "recall": 1.0,
+            "f1": 0.9668874172185431,
+            "confusion": {
+              "tp": 146,
+              "fp": 10,
+              "fn": 0,
+              "tn": 4844
+            }
+          },
+          "with_identical_sequence": {
+            "n": 793,
+            "anomalies": 53,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "confusion": {
+              "tp": 53,
+              "fp": 0,
+              "fn": 0,
+              "tn": 740
+            }
+          },
+          "without_identical_sequence": {
+            "n": 4207,
+            "anomalies": 93,
+            "accuracy": 0.9976230092702638,
+            "precision": 0.9029126213592233,
+            "recall": 1.0,
+            "f1": 0.9489795918367347,
+            "confusion": {
+              "tp": 93,
+              "fp": 10,
+              "fn": 0,
+              "tn": 4104
+            }
+          }
+        },
+        "untuned": {
+          "all": {
+            "n": 5000,
+            "anomalies": 146,
+            "accuracy": 0.8752,
+            "precision": 0.13677811550151975,
+            "recall": 0.6164383561643836,
+            "f1": 0.22388059701492538,
+            "confusion": {
+              "tp": 90,
+              "fp": 568,
+              "fn": 56,
+              "tn": 4286
+            }
+          },
+          "with_identical_sequence": {
+            "n": 793,
+            "anomalies": 53,
+            "accuracy": 0.9621689785624212,
+            "precision": 0.7446808510638298,
+            "recall": 0.660377358490566,
+            "f1": 0.7,
+            "confusion": {
+              "tp": 35,
+              "fp": 12,
+              "fn": 18,
+              "tn": 728
+            }
+          },
+          "without_identical_sequence": {
+            "n": 4207,
+            "anomalies": 93,
+            "accuracy": 0.8588067506536724,
+            "precision": 0.09001636661211129,
+            "recall": 0.5913978494623656,
+            "f1": 0.15625,
+            "confusion": {
+              "tp": 55,
+              "fp": 556,
+              "fn": 38,
+              "tn": 3558
+            }
+          }
+        }
+      }
+    },
+    "the full training split (460048 blocks)": {
+      "reference_blocks": 460048,
+      "test_blocks_with_identical_sequence": 1115,
+      "models": {
+        "finetuned": {
+          "all": {
+            "n": 5000,
+            "anomalies": 146,
+            "accuracy": 0.998,
+            "precision": 0.9358974358974359,
+            "recall": 1.0,
+            "f1": 0.9668874172185431,
+            "confusion": {
+              "tp": 146,
+              "fp": 10,
+              "fn": 0,
+              "tn": 4844
+            }
+          },
+          "with_identical_sequence": {
+            "n": 1115,
+            "anomalies": 59,
+            "accuracy": 0.9991031390134529,
+            "precision": 0.9833333333333333,
+            "recall": 1.0,
+            "f1": 0.9915966386554621,
+            "confusion": {
+              "tp": 59,
+              "fp": 1,
+              "fn": 0,
+              "tn": 1055
+            }
+          },
+          "without_identical_sequence": {
+            "n": 3885,
+            "anomalies": 87,
+            "accuracy": 0.9976833976833976,
+            "precision": 0.90625,
+            "recall": 1.0,
+            "f1": 0.9508196721311475,
+            "confusion": {
+              "tp": 87,
+              "fp": 9,
+              "fn": 0,
+              "tn": 3789
+            }
+          }
+        },
+        "untuned": {
+          "all": {
+            "n": 5000,
+            "anomalies": 146,
+            "accuracy": 0.8752,
+            "precision": 0.13677811550151975,
+            "recall": 0.6164383561643836,
+            "f1": 0.22388059701492538,
+            "confusion": {
+              "tp": 90,
+              "fp": 568,
+              "fn": 56,
+              "tn": 4286
+            }
+          },
+          "with_identical_sequence": {
+            "n": 1115,
+            "anomalies": 59,
+            "accuracy": 0.9336322869955157,
+            "precision": 0.4157303370786517,
+            "recall": 0.6271186440677966,
+            "f1": 0.5,
+            "confusion": {
+              "tp": 37,
+              "fp": 52,
+              "fn": 22,
+              "tn": 1004
+            }
+          },
+          "without_identical_sequence": {
+            "n": 3885,
+            "anomalies": 87,
+            "accuracy": 0.8584298584298584,
+            "precision": 0.09314586994727592,
+            "recall": 0.6091954022988506,
+            "f1": 0.1615853658536585,
+            "confusion": {
+              "tp": 53,
+              "fp": 516,
+              "fn": 34,
+              "tn": 3282
+            }
+          }
+        }
+      }
+    }
+  }
+}
