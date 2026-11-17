@@ -65,7 +65,7 @@ def main():
         "dtype": args.dtype, "cpu": platform.processor(), "logical_cores": psutil.cpu_count(), "torch_threads": torch.get_num_threads(),
         "torch": torch.__version__, "model_dir": args.model_dir, "load_seconds": round(classifier.load_seconds, 2),
         "memory_gb_after_load": round(rss_loaded / 2**30, 2), "peak_memory_gb": round(peak_rss / 2**30, 2),
-        "memory_gb_before_load": round(rss_start / 2**30, 2), "n_measured": len(lat),
+        "memory_gb_before_load": round(rss_start / 2**30, 2), "n_measured": len(lat), "latencies_s": [round(x, 3) for x in latencies],
         "latency_s": {"mean": round(float(lat.mean()), 3), "median": round(float(np.median(lat)), 3),
                       "p95": round(float(np.percentile(lat, 95)), 3), "max": round(float(lat.max()), 3)},
         "agreement_with_colab": {"compared": compared, "label_agreement": agree / compared if compared else None,
