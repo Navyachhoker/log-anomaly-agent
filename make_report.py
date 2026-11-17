@@ -125,9 +125,13 @@ def model_cost(key: str, records, meta: dict, latency: dict, gpu_hourly_usd, act
 def build_report(pred_dir: Path, results_dir: Path, gpu_hourly_usd=None, actual_spend_zeroshot_usd=None) -> dict:
     files = {key: pred_dir / f"{key}_test_eval.jsonl" for key, _ in MODELS}
     preds = {key: load_predictions(path) for key, path in files.items()}
-    missing = [f"{key}_test_eval.jsonl" for key, p in preds.items() if p is None]
+    missing = [f"{key}_test_eval.jsonl" for key, p in preds.items() if p is None and key != "zeroshot"]
     if missing:
         sys.exit(f"Missing prediction files in {pred_dir}: {', '.join(missing)}")
+    notes_extra = []
+    if preds["zeroshot"] is None:  # the zero-shot baseline is added later; report the two Qwen models meanwhile
+        del preds["zeroshot"]
+        notes_extra.append("The zero-shot LLM baseline is not included in this version of the report (its predictions were not available).")
 
     common = sorted(set.intersection(*[set(p) for p in preds.values()]))
     dropped = {key: len(p) - len(common) for key, p in preds.items()}
@@ -154,7 +158,7 @@ def build_report(pred_dir: Path, results_dir: Path, gpu_hourly_usd=None, actual_
         (results_dir / "threshold.json").write_text(json.dumps(threshold_info, indent=2))
 
     models = []
-    for key, name in MODELS:
+    for key, name in [m for m in MODELS if m[0] in preds]:
         records = [preds[key][b] for b in common]
         meta = load_meta(files[key])
         y_text, unparseable = predictions_from_text(records, y_true)
@@ -181,7 +185,7 @@ def build_report(pred_dir: Path, results_dir: Path, gpu_hourly_usd=None, actual_
         "notes": ["Anomaly is the positive class. Unparseable answers are counted as errors.",
                   "95% intervals come from a 1000-sample bootstrap over the test examples.",
                   "Latency is measured at batch size 1 excluding warm-up calls and is NOT comparable across hardware: T4 GPU vs API vs laptop CPU.",
-                  "The decision threshold was tuned on validation data only; the test examples were never used for tuning."],
+                  "The decision threshold was tuned on validation data only; the test examples were never used for tuning."] + notes_extra,
     }
 
     full = load_predictions(pred_dir / "finetuned_test_full.jsonl")

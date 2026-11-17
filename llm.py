@@ -16,6 +16,7 @@ import httpx
 import config  # noqa: F401  (loads .env)
 
 RETRY_STATUS = {429, 500, 502, 503, 504}
+RETRY_WAITS = (5, 20, 60)  # seconds to wait before the 2nd, 3rd and 4th attempt (rate limits need real waiting)
 
 
 class LLMError(RuntimeError):
@@ -48,7 +49,12 @@ def prices_per_million_tokens() -> Tuple[Optional[float], Optional[float]]:
     """(input, output) USD per 1M tokens from .env, or None when not set."""
     def read(name):
         value = os.getenv(name, "").strip()
-        return float(value) if value else None
+        if not value:
+            return None
+        try:
+            return float(value)
+        except ValueError:
+            raise LLMError(f"{name} in .env must be a number, but it is {value!r}. Check that each setting is on its own line.") from None
     return read("LOGAGENT_PRICE_IN_PER_MTOK"), read("LOGAGENT_PRICE_OUT_PER_MTOK")
 
 
@@ -87,8 +93,14 @@ def _call_anthropic(s, system, user, json_mode, client):
 def _call_gemini(s, system, user, json_mode, client):
     body = {"systemInstruction": {"parts": [{"text": system}]},
             "contents": [{"role": "user", "parts": [{"text": user}]}]}
+    generation_config = {}
     if json_mode:
-        body["generationConfig"] = {"responseMimeType": "application/json"}
+        generation_config["responseMimeType"] = "application/json"
+    budget = os.getenv("LOGAGENT_GEMINI_THINKING_BUDGET", "").strip()  # 0 turns the model's hidden "thinking" off
+    if budget:
+        generation_config["thinkingConfig"] = {"thinkingBudget": int(budget)}
+    if generation_config:
+        body["generationConfig"] = generation_config
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{s['model']}:generateContent"
     r = client.post(url, json=body, headers={"x-goog-api-key": s["api_key"]})
 
@@ -113,15 +125,19 @@ def chat(system: str, user: str, json_mode: bool = False, timeout: float = 60.0)
 
     start = time.perf_counter()
     last_problem = ""
+    attempts = len(RETRY_WAITS) + 1
     with httpx.Client(timeout=timeout) as client:
-        for attempt in range(3):
+        for attempt in range(attempts):
+            wait = None
             try:
                 response, extract = PROVIDERS[s["provider"]](s, system, user, json_mode, client)
             except httpx.HTTPError as error:
                 last_problem = f"network error: {type(error).__name__}"
             else:
                 if response.status_code in RETRY_STATUS:
-                    last_problem = f"HTTP {response.status_code}"
+                    last_problem = f"HTTP {response.status_code}: {response.text[:300]}"
+                    retry_after = response.headers.get("retry-after", "")
+                    wait = float(retry_after) if retry_after.replace(".", "", 1).isdigit() else None
                 elif response.status_code >= 400:
                     raise LLMError(f"HTTP {response.status_code} from {s['provider']}: {response.text[:300]}")
                 else:
@@ -130,5 +146,6 @@ def chat(system: str, user: str, json_mode: bool = False, timeout: float = 60.0)
                     except (KeyError, IndexError, TypeError, ValueError) as error:
                         raise LLMError(f"Unexpected response format from {s['provider']}: {error!r}") from error
                     return LLMResponse(text, int(n_in), int(n_out), time.perf_counter() - start)
-            time.sleep(2 ** attempt)
-    raise LLMError(f"{s['provider']} request failed after 3 attempts ({last_problem})")
+            if attempt < attempts - 1:
+                time.sleep(min(wait if wait is not None else RETRY_WAITS[attempt], 90))
+    raise LLMError(f"{s['provider']} request failed after {attempts} attempts ({last_problem})")
