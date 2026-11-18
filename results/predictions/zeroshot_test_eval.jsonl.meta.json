@@ -1,0 +1,10 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "base_url": "https://api.openai.com/v1",
+  "hardware": "API (remote provider)",
+  "price_in_per_mtok_usd": 0.3,
+  "price_out_per_mtok_usd": 2.5,
+  "data": "D:\\log-anomaly-agent\\data\\processed\\test_eval.jsonl",
+  "finished_at": "2026-11-18 15:08:27"
+}

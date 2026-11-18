@@ -1,0 +1,42 @@
+{
+  "gemini:gemini-2.5-flash": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "n": 10,
+    "valid_json_rate": 1.0,
+    "valid_on_first_try_rate": 1.0,
+    "latency_s": {
+      "mean": 12.46,
+      "median": 13.12,
+      "p95": 19.0
+    },
+    "mean_input_tokens": 542.9,
+    "mean_output_tokens": 2092.8,
+    "mean_cost_per_call_usd": 0.00539487,
+    "prices_per_mtok_usd": [
+      0.3,
+      2.5
+    ],
+    "examples": [
+      {
+        "cause": "The block, identified as part of a temporary file for a MapReduce task, was successfully written and replicated across multiple DataNodes. Subsequently, the NameNode marked this block as invalid for those DataNodes, leading to its deletion. This sequence strongly suggests a normal application-level cleanup process for a temporary block, likely due to a task failure, cancellation, or speculative execution discarding its output.",
+        "suggested_fix": [
+          "Verify the status of the MapReduce job associated with the temporary file path.",
+          "Confirm if the application workflow routinely creates and deletes temporary blocks (e.g., failed tasks, speculative execution).",
+          "Check NameNode logs for any preceding errors or warnings related to the block before its invalidation.",
+          "Assess overall HDFS cluster health to rule out wider block-related issues."
+        ]
+      },
+      {
+        "cause": "The primary issue is a metadata inconsistency on a DataNode, evidenced by the warning 'BlockInfo not found in volumeMap' during a block deletion attempt. This implies the physical block file exists on disk, but the DataNode's internal metadata does not recognize it, likely due to corrupted or outdated DataNode volumeMap or an incomplete block report. The NameNode's decision to mark the block as invalid and request its deletion from multiple nodes suggests it detected a discrepancy, possibly over-replication or an orphaned block.",
+        "suggested_fix": [
+          "Examine the full logs of the affected DataNode for disk errors, metadata corruption, or recent restarts that could cause volumeMap inconsistencies.",
+          "Inspect the DataNode's data directories for any manual modifications, filesystem issues, or unexpected file permissions.",
+          "Consider a graceful restart of the affected DataNode to force a full block report and synchronize its metadata with the NameNode.",
+          "Review the HDFS replication factor and balancing configurations, especially if over-replication or deletion of valid blocks is suspected."
+        ]
+      }
+    ],
+    "measured_at": "2026-11-14 22:20:01"
+  }
+}

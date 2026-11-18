@@ -1,0 +1,39 @@
+{
+  "hardware_classifier": "laptop CPU (Intel64 Family 6 Model 186 Stepping 2, GenuineIntel), dtype float32",
+  "diagnosis_provider": "gemini",
+  "diagnosis_model": "gemini-3.5-flash-lite",
+  "examples_run": 30,
+  "flagged_as_anomaly": 20,
+  "diagnosed_successfully": 20,
+  "latency_anomalous_flagged": {
+    "classify": {
+      "n": 20,
+      "mean_ms": 3928.9,
+      "median_ms": 3767.7,
+      "p95_ms": 7479.4
+    },
+    "diagnose": {
+      "n": 20,
+      "mean_ms": 5377.1,
+      "median_ms": 4211.5,
+      "p95_ms": 11855.7
+    },
+    "total": {
+      "n": 20,
+      "mean_ms": 9333.4,
+      "median_ms": 7057.1,
+      "p95_ms": 19320.2
+    }
+  },
+  "latency_normal_flagged_total": {
+    "n": 10,
+    "mean_ms": 3525.6,
+    "median_ms": 3640.2,
+    "p95_ms": 4175.5
+  },
+  "diagnosis_cost_per_call_usd": 0.00052441,
+  "mean_llm_input_tokens": 515.95,
+  "mean_llm_output_tokens": 147.85,
+  "note": "Classifier on laptop CPU and diagnosis over the internet; these two latencies are reported separately because they run on different systems.",
+  "measured_at": "2026-11-18 15:21:07"
+}

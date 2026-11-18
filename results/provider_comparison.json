@@ -38,5 +38,43 @@
       }
     ],
     "measured_at": "2026-11-14 22:20:01"
+  },
+  "gemini:gemini-3.5-flash-lite": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "n": 10,
+    "valid_json_rate": 1.0,
+    "valid_on_first_try_rate": 1.0,
+    "latency_s": {
+      "mean": 7.9,
+      "median": 8.52,
+      "p95": 9.39
+    },
+    "mean_input_tokens": 542.9,
+    "mean_output_tokens": 139.7,
+    "mean_cost_per_call_usd": 0.0005121199999999999,
+    "prices_per_mtok_usd": [
+      0.3,
+      2.5
+    ],
+    "examples": [
+      {
+        "cause": "The evidence of an anomaly is extremely weak, as this log sequence represents normal HDFS behavior for writing a block with a replication factor, followed by a replication adjustment and cleanup of temporary or redundant replicas. The presence of deletion events indicates normal garbage collection or pipeline balancing rather than data corruption or loss.",
+        "suggested_fix": [
+          "Verify that the block replication factor matches the cluster default configuration.",
+          "Check NameNode and DataNode health to ensure no unexpected disk failures occurred during the write operation.",
+          "Review job tracker logs to confirm the MapReduce task completed successfully despite temporary file operations."
+        ]
+      },
+      {
+        "cause": "The classifier likely flagged this log because of the warning 'Unexpected error trying to delete block ... BlockInfo not found in volumeMap' alongside multiple block deletion and replication events. This indicates a minor synchronization issue or race condition between the NameNode's expected block state and the DataNode's local volume map during cleanup of temporary task files, though the evidence for a severe failure is weak.",
+        "suggested_fix": [
+          "Check the health and disk status of the affected DataNode to ensure no physical I/O errors occurred.",
+          "Verify if the MapReduce job completed successfully despite the temporary file cleanup warning.",
+          "Inspect NameNode and DataNode logs around the same timestamps for any repeating volume map inconsistencies."
+        ]
+      }
+    ],
+    "measured_at": "2026-11-18 15:13:51"
   }
 }

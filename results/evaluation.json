@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-11-14T07:10:03",
+  "generated_at": "2026-11-18T15:28:34",
   "test_examples": {
-    "n": 5000,
-    "anomalies": 146,
-    "anomaly_rate": 0.0292,
+    "n": 1000,
+    "anomalies": 26,
+    "anomaly_rate": 0.026,
     "dropped_because_not_in_all_three_files": {
-      "finetuned": 0,
-      "untuned": 0
+      "finetuned": 4000,
+      "untuned": 4000,
+      "zeroshot": 0
     }
   },
   "threshold": {
@@ -16,13 +17,13 @@
     "val_anomalies": 146,
     "val_f1_at_0.5": 0.9700996677740864,
     "val_f1_at_tuned": 0.9798657718120806,
-    "tuned_at": "2026-11-14T07:10:02"
+    "tuned_at": "2026-11-18T15:28:34"
   },
   "models": [
     {
       "key": "finetuned",
       "name": "Fine-tuned Qwen2.5-1.5B (QLoRA)",
-      "n": 5000,
+      "n": 1000,
       "hardware": "Tesla T4 (Colab GPU)",
       "precision": "4-bit NF4 base + LoRA adapter",
       "unparseable": {
@@ -30,106 +31,106 @@
         "rate": 0.0
       },
       "as_generated": {
-        "accuracy": 0.998,
-        "precision": 0.9358974358974359,
+        "accuracy": 0.999,
+        "precision": 0.9629629629629629,
         "recall": 1.0,
-        "f1": 0.9668874172185431,
+        "f1": 0.9811320754716981,
         "confusion": {
-          "tp": 146,
-          "fp": 10,
+          "tp": 26,
+          "fp": 1,
           "fn": 0,
-          "tn": 4844
+          "tn": 973
         },
         "ci95": {
           "accuracy": [
-            0.9966,
-            0.9992
+            0.997,
+            1.0
           ],
           "precision": [
-            0.8936,
-            0.9725
+            0.8696,
+            1.0
           ],
           "recall": [
             1.0,
             1.0
           ],
           "f1": [
-            0.9438,
-            0.9861
+            0.9302,
+            1.0
           ]
         }
       },
       "scored_at_0.5": {
-        "accuracy": 0.998,
-        "precision": 0.9358974358974359,
+        "accuracy": 0.999,
+        "precision": 0.9629629629629629,
         "recall": 1.0,
-        "f1": 0.9668874172185431,
+        "f1": 0.9811320754716981,
         "confusion": {
-          "tp": 146,
-          "fp": 10,
+          "tp": 26,
+          "fp": 1,
           "fn": 0,
-          "tn": 4844
+          "tn": 973
         },
         "ci95": {
           "accuracy": [
-            0.9966,
-            0.9992
+            0.997,
+            1.0
           ],
           "precision": [
-            0.8936,
-            0.9725
+            0.8696,
+            1.0
           ],
           "recall": [
             1.0,
             1.0
           ],
           "f1": [
-            0.9438,
-            0.9861
+            0.9302,
+            1.0
           ]
         }
       },
       "scored_at_tuned_threshold": {
         "threshold": 0.98,
-        "accuracy": 0.9988,
-        "precision": 0.9605263157894737,
+        "accuracy": 0.999,
+        "precision": 0.9629629629629629,
         "recall": 1.0,
-        "f1": 0.9798657718120806,
+        "f1": 0.9811320754716981,
         "confusion": {
-          "tp": 146,
-          "fp": 6,
+          "tp": 26,
+          "fp": 1,
           "fn": 0,
-          "tn": 4848
+          "tn": 973
         },
         "ci95": {
           "accuracy": [
-            0.9976,
-            0.9996
+            0.997,
+            1.0
           ],
           "precision": [
-            0.9245,
-            0.9873
+            0.8696,
+            1.0
           ],
           "recall": [
             1.0,
             1.0
           ],
           "f1": [
-            0.9608,
-            0.9936
+            0.9302,
+            1.0
           ]
         }
       },
       "latency": {
-        "n": 4997,
-        "mean_s": 0.2627,
-        "median_s": 0.2503,
-        "p95_s": 0.326,
-        "total_s": 1312.52
+        "n": 997,
+        "mean_s": 0.2634,
+        "median_s": 0.2515,
+        "p95_s": 0.3239,
+        "total_s": 262.58
       },
       "cost": {
-        "estimated_commercial_usd_total": 0.12760611111111111,
-        "estimated_commercial_usd_per_1000": 0.02553654414871145,
+        "estimated_commercial_usd_total": 0.02552861111111111,
+        "estimated_commercial_usd_per_1000": 0.025605427393290983,
         "actual_spend_usd": 0.0,
         "assumptions": "estimate = measured inference seconds x assumed GPU price of 0.35 USD/hour (inference time only); actual spend 0 on the free Colab tier"
       }
@@ -137,7 +138,7 @@
     {
       "key": "untuned",
       "name": "Untuned Qwen2.5-1.5B-Instruct",
-      "n": 5000,
+      "n": 1000,
       "hardware": "Tesla T4 (Colab GPU)",
       "precision": "4-bit NF4 base",
       "unparseable": {
@@ -145,88 +146,189 @@
         "rate": 0.0
       },
       "as_generated": {
-        "accuracy": 0.8752,
-        "precision": 0.13677811550151975,
-        "recall": 0.6164383561643836,
-        "f1": 0.22388059701492538,
+        "accuracy": 0.867,
+        "precision": 0.11510791366906475,
+        "recall": 0.6153846153846154,
+        "f1": 0.19393939393939397,
         "confusion": {
-          "tp": 90,
-          "fp": 568,
-          "fn": 56,
-          "tn": 4286
+          "tp": 16,
+          "fp": 123,
+          "fn": 10,
+          "tn": 851
         },
         "ci95": {
           "accuracy": [
-            0.8664,
-            0.8842
+            0.847,
+            0.888
           ],
           "precision": [
-            0.1115,
-            0.1644
+            0.0638,
+            0.1743
           ],
           "recall": [
-            0.539,
-            0.6929
+            0.4286,
+            0.8
           ],
           "f1": [
-            0.1873,
-            0.2629
+            0.1118,
+            0.2807
           ]
         }
       },
       "scored_at_0.5": {
-        "accuracy": 0.8752,
-        "precision": 0.13677811550151975,
-        "recall": 0.6164383561643836,
-        "f1": 0.22388059701492538,
+        "accuracy": 0.867,
+        "precision": 0.11510791366906475,
+        "recall": 0.6153846153846154,
+        "f1": 0.19393939393939397,
         "confusion": {
-          "tp": 90,
-          "fp": 568,
-          "fn": 56,
-          "tn": 4286
+          "tp": 16,
+          "fp": 123,
+          "fn": 10,
+          "tn": 851
         },
         "ci95": {
           "accuracy": [
-            0.8664,
-            0.8842
+            0.847,
+            0.888
           ],
           "precision": [
-            0.1115,
-            0.1644
+            0.0638,
+            0.1743
           ],
           "recall": [
-            0.539,
-            0.6929
+            0.4286,
+            0.8
           ],
           "f1": [
-            0.1873,
-            0.2629
+            0.1118,
+            0.2807
           ]
         }
       },
       "latency": {
-        "n": 4997,
-        "mean_s": 0.1567,
-        "median_s": 0.1455,
-        "p95_s": 0.2257,
-        "total_s": 782.96
+        "n": 997,
+        "mean_s": 0.1583,
+        "median_s": 0.1462,
+        "p95_s": 0.2278,
+        "total_s": 157.8
       },
       "cost": {
-        "estimated_commercial_usd_total": 0.07612111111111111,
-        "estimated_commercial_usd_per_1000": 0.015233362239565963,
+        "estimated_commercial_usd_total": 0.015341666666666667,
+        "estimated_commercial_usd_per_1000": 0.01538783015713808,
         "actual_spend_usd": 0.0,
         "assumptions": "estimate = measured inference seconds x assumed GPU price of 0.35 USD/hour (inference time only); actual spend 0 on the free Colab tier"
+      }
+    },
+    {
+      "key": "zeroshot",
+      "name": "Zero-shot API LLM",
+      "n": 1000,
+      "hardware": "API (remote provider)",
+      "precision": "gemini-3.5-flash-lite",
+      "unparseable": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "as_generated": {
+        "accuracy": 0.679,
+        "precision": 0.046153846153846156,
+        "recall": 0.5769230769230769,
+        "f1": 0.08547008547008547,
+        "confusion": {
+          "tp": 15,
+          "fp": 310,
+          "fn": 11,
+          "tn": 664
+        },
+        "ci95": {
+          "accuracy": [
+            0.648,
+            0.707
+          ],
+          "precision": [
+            0.0235,
+            0.0726
+          ],
+          "recall": [
+            0.375,
+            0.7812
+          ],
+          "f1": [
+            0.0443,
+            0.1308
+          ]
+        }
+      },
+      "latency": {
+        "n": 1000,
+        "mean_s": 3.7008,
+        "median_s": 1.7669,
+        "p95_s": 9.6762,
+        "total_s": 3700.79
+      },
+      "cost": {
+        "input_tokens": 456589,
+        "output_tokens": 1000,
+        "estimated_commercial_usd_total": 0.13947669999999998,
+        "estimated_commercial_usd_per_1000": 0.13947669999999998,
+        "actual_spend_usd": 0.0,
+        "assumptions": "list prices from .env at run time (0.3 in / 2.5 out USD per 1M tokens); actual spend as supplied by the user (free tiers may make it 0)"
       }
     }
   ],
   "supplementary": {},
-  "end_to_end": null,
+  "end_to_end": {
+    "hardware_classifier": "laptop CPU (Intel64 Family 6 Model 186 Stepping 2, GenuineIntel), dtype float32",
+    "diagnosis_provider": "gemini",
+    "diagnosis_model": "gemini-3.5-flash-lite",
+    "examples_run": 30,
+    "flagged_as_anomaly": 20,
+    "diagnosed_successfully": 20,
+    "latency_anomalous_flagged": {
+      "classify": {
+        "n": 20,
+        "mean_ms": 3928.9,
+        "median_ms": 3767.7,
+        "p95_ms": 7479.4
+      },
+      "diagnose": {
+        "n": 20,
+        "mean_ms": 5377.1,
+        "median_ms": 4211.5,
+        "p95_ms": 11855.7
+      },
+      "total": {
+        "n": 20,
+        "mean_ms": 9333.4,
+        "median_ms": 7057.1,
+        "p95_ms": 19320.2
+      }
+    },
+    "latency_normal_flagged_total": {
+      "n": 10,
+      "mean_ms": 3525.6,
+      "median_ms": 3640.2,
+      "p95_ms": 4175.5
+    },
+    "diagnosis_cost_per_call_usd": 0.00052441,
+    "mean_llm_input_tokens": 515.95,
+    "mean_llm_output_tokens": 147.85,
+    "note": "Classifier on laptop CPU and diagnosis over the internet; these two latencies are reported separately because they run on different systems.",
+    "measured_at": "2026-11-18 15:21:07",
+    "cost_formula": {
+      "fraction_flagged_as_anomaly": 0.027,
+      "classification_cost_per_log_usd": 2.560542739329098e-05,
+      "diagnosis_cost_per_llm_call_usd": 0.00052441,
+      "total_cost_per_log_usd": 3.976449739329098e-05,
+      "total_cost_per_1000_logs_usd": 0.03976449739329098,
+      "formula": "Total = classification cost + fraction of anomalous logs x diagnosis cost per LLM call"
+    }
+  },
   "diagnosis_ratings": null,
   "notes": [
     "Anomaly is the positive class. Unparseable answers are counted as errors.",
     "95% intervals come from a 1000-sample bootstrap over the test examples.",
     "Latency is measured at batch size 1 excluding warm-up calls and is NOT comparable across hardware: T4 GPU vs API vs laptop CPU.",
-    "The decision threshold was tuned on validation data only; the test examples were never used for tuning.",
-    "The zero-shot LLM baseline is not included in this version of the report (its predictions were not available)."
+    "The decision threshold was tuned on validation data only; the test examples were never used for tuning."
   ]
 }
